@@ -1,11 +1,11 @@
 {
 	"manifest": "1",
-	"version": "1.1.0",
+	"version": "1.0.0",
 	"elements": [
 		{
 			"path": "files",
-			"name": "Team Card",
-			"version": "1.1.0",
+			"name": "Team Cards",
+			"version": "1.0.0",
 			"settings": {
 				"config": {"autopop": true},
 				"properties": [
