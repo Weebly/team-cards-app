@@ -1,7 +1,6 @@
 {
 	"manifest": "1",
 	"version": "1.1.0",
-	"client_id": "1123507315",
 	"elements": [
 		{
 			"path": "files",
