@@ -1,0 +1,61 @@
+{
+	"manifest": "1",
+	"version": "1.1.0",
+	"client_id": "1123507315",
+	"elements": [
+		{
+			"path": "files",
+			"name": "Team Card",
+			"version": "1.1.0",
+			"settings": {
+				"config": {"autopop": true},
+				"properties": [
+					{
+						"type": "group",
+						"name": "settings",
+						"label": "Settings",
+						"properties": [
+							{
+								"name": "size",
+								"label": "Size",
+								"type": "select",
+								"default": "standard",
+								"values": [
+									{"name": "Standard", "value": "standard"},
+									{"name": "Large", "value": "large"}
+								]
+							},
+							{
+								"name": "style",
+								"label": "Image Style",
+								"type": "select",
+								"default": "round",
+								"values": [
+									{"name": "Circle", "value": "round"},
+									{"name": "Fill", "value": "fill"}
+								]
+							},
+							{
+								"name": "extra_area",
+								"label": "Display extras",
+								"type": "select",
+								"default": "button",
+								"values": [
+									{"name": "None", "value": "none"},
+									{"name": "Button", "value": "button"},
+									{"name": "Text", "value": "text"}
+								]
+							},
+							{
+								"name": "button_link",
+								"label": "Extras Button Url",
+								"type": "string",
+								"default": "#"
+							}
+						]
+					}
+				]
+			}
+		}
+	]
+}
