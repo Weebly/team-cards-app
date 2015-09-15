@@ -1,9 +1,3 @@
-team-card
-=========
-An element consisting of the following:
+#Team Card App
 
-Picture
-Name
-Position
-Social Icons
-Button
+Display an image and brief text in card format.
