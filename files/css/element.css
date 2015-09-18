@@ -102,10 +102,6 @@
 				padding: (@padding / 4) 0;
 			}
 		}
-
-		&__extras {
-			margin-right: 10px;
-		}
 	}
 }
 
