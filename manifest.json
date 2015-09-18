@@ -36,20 +36,9 @@
 							},
 							{
 								"name": "extra_area",
-								"label": "Display extras",
-								"type": "select",
-								"default": "button",
-								"values": [
-									{"name": "None", "value": "none"},
-									{"name": "Button", "value": "button"},
-									{"name": "Text", "value": "text"}
-								]
-							},
-							{
-								"name": "button_link",
-								"label": "Extras Button Url",
-								"type": "string",
-								"default": "#"
+								"label": "Display extra area",
+								"type": "toggle",
+								"default": true
 							}
 						]
 					}
