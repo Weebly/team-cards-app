@@ -104,31 +104,7 @@
 		}
 
 		&__extras {
-			text-align: center;
-			margin: 0 @padding @padding;
-
-			.button {
-				color: @colorAlternative;
-				background-color: @colorPrimary;
-				border-radius: 38px;
-				line-height: 38px;
-				max-width: @width - (@padding * 4);
-				white-space: nowrap;
-				overflow: hidden;
-				text-overflow: ellipsis;
-				font-size: @fontSmall;
-				margin: 0 auto;
-				box-sizing: border-box;
-				padding: 0 @padding;
-				display: block;
-				text-decoration: none;
-			}
-
-			.text {
-				color: @colorSecondary;
-				font-size: @fontSmall;
-				line-height: 1rem;
-			}
+			margin-right: 10px;
 		}
 	}
 }

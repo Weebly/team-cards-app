@@ -1,27 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="18px" height="21px" viewBox="0 0 18 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
-    <title>Team Card Icon</title>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.3 (12072) - http://www.bohemiancoding.com/sketch -->
+    <title>team card</title>
     <desc>Created with Sketch.</desc>
-    <defs>
-        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-1">
-            <feMorphology radius="1" in="SourceAlpha" operator="dilate" result="shadowSpreadOuter1"></feMorphology>
-            <feOffset dx="0" dy="0" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
-            <feGaussianBlur stdDeviation="0" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
-            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.07 0" in="shadowBlurOuter1" type="matrix" result="shadowMatrixOuter1"></feColorMatrix>
-            <feMerge>
-                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
-                <feMergeNode in="SourceGraphic"></feMergeNode>
-            </feMerge>
-        </filter>
-    </defs>
-    <g id="Elements" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <g id="Team-Cards" sketch:type="MSArtboardGroup" transform="translate(-79.000000, -160.000000)">
-            <g id="Element-Icon" sketch:type="MSLayerGroup" transform="translate(40.000000, 40.000000)">
-                <g id="Light" transform="translate(0.000000, 107.000000)" sketch:type="MSShapeGroup">
-                    <rect id="Element-Container" fill="#FFFFFF" filter="url(#filter-1)" x="0" y="0" width="96" height="68" rx="4"></rect>
-                    <path d="M40,14.9947712 C40,14.4453742 40.4446309,14 41.0008717,14 L54.9991283,14 C55.5518945,14 56,14.4509254 56,14.9947712 L56,32.0052288 C56,32.5546258 55.5553691,33 54.9991283,33 L41.0008717,33 C40.4481055,33 40,32.5490746 40,32.0052288 L40,14.9947712 Z M48,25 C49.6568542,25 51,23.4329966 51,21.5 C51,19.5670034 49.6568542,18 48,18 C46.3431458,18 45,19.5670034 45,21.5 C45,23.4329966 46.3431458,25 48,25 Z M43,29 L53,29" id="Team-Card-Icon" stroke="#363B3E" stroke-width="2"></path>
-                </g>
+    <defs></defs>
+    <g id="icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="team-card" sketch:type="MSArtboardGroup" fill="#C9CDCF">
+            <g id="Form_TeamCard" sketch:type="MSLayerGroup" transform="translate(6.000000, 5.000000)">
+                <path d="M10.5,13.6 C12.9,13.6 14.8,11.4 14.8,8.8 C14.8,6.2 12.9,4 10.5,4 C8.1,4 6.2,6.2 6.2,8.8 C6.2,11.4 8.1,13.6 10.5,13.6 L10.5,13.6 Z M10.5,6 C11.7,6 12.8,7.2 12.8,8.8 C12.8,10.4 11.7,11.6 10.5,11.6 C9.3,11.6 8.2,10.4 8.2,8.8 C8.2,7.2 9.3,6 10.5,6 L10.5,6 Z M0,0 L0,23 L21,23 L21,0 L0,0 L0,0 Z M19,2 L19,21 L2,21 L2,2 L19,2 L19,2 Z M5,18 L5,16 L16,16 L16,18 L5,18 L5,18 Z" id="Shape" sketch:type="MSShapeGroup"></path>
             </g>
         </g>
     </g>
