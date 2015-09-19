@@ -7,7 +7,6 @@
 		initialize: function() {
 			$(document).ready(function() {
 				this.fixStyles();
-				this.setupExtraArea();
 			}.bind(this));
 
 			this.fixStyles();
