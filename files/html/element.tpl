@@ -1,13 +1,19 @@
-<div class="team-card--{{size}}">
-	<div class="team-card__image--{{style}}">
+<div class="team-card--{{style}}">
+	<div class="team-card__image--{{image_display}}">
 		{pic:image}
 	</div>
 	<div class="team-card__content">
-		<div class="name">{name:text default="Name"}</div>
-		<div class="title">{position:text default="Position"}</div>
+		<div class="name">{name:text default="Awesome Name"}</div>
+		{{#title}}
+			<div class="title">{title:text default="Title"}</div>
+		{{/title}}
 	</div>
 	<div class="team-card__extras">
-		<a class="button" href="{{button_link}}" style="text-align: center;">{button_text:text default="Learn More"}</a>
-		<div class="text">{extras_text:text default="Donec ullamcorper nulla non metus auctor fringilla."}</div>
+		{{#about}}
+			<div class="text">{extras_text:text default="Donec ullamcorper nulla non metus auctor fringilla."}</div>
+		{{/about}}
+		{{#button}}
+			{button_text:button default="Learn More" align="center"}
+		{{/button}}
 	</div>
 </div>

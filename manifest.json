@@ -1,10 +1,11 @@
 {
 	"manifest": "1",
 	"version": "1.0.0",
+	"client_id": "1622905832",
 	"elements": [
 		{
 			"path": "files",
-			"name": "Team Cards",
+			"name": "Team Card",
 			"version": "1.0.0",
 			"settings": {
 				"config": {"autopop": true},
@@ -15,8 +16,8 @@
 						"label": "Settings",
 						"properties": [
 							{
-								"name": "size",
-								"label": "Size",
+								"name": "style",
+								"label": "Style",
 								"type": "select",
 								"default": "standard",
 								"values": [
@@ -25,8 +26,8 @@
 								]
 							},
 							{
-								"name": "style",
-								"label": "Image Style",
+								"name": "image_display",
+								"label": "Image Display",
 								"type": "select",
 								"default": "round",
 								"values": [
@@ -35,21 +36,22 @@
 								]
 							},
 							{
-								"name": "extra_area",
-								"label": "Display extras",
-								"type": "select",
-								"default": "button",
-								"values": [
-									{"name": "None", "value": "none"},
-									{"name": "Button", "value": "button"},
-									{"name": "Text", "value": "text"}
-								]
+								"name": "title",
+								"label": "Title",
+								"type": "toggle",
+								"default": true
 							},
 							{
-								"name": "button_link",
-								"label": "Extras Button Url",
-								"type": "string",
-								"default": "#"
+								"name": "about",
+								"label": "About",
+								"type": "toggle",
+								"default": true
+							},
+							{
+								"name": "button",
+								"label": "Button",
+								"type": "toggle",
+								"default": true
 							}
 						]
 					}

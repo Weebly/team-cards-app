@@ -1,5 +1,5 @@
-@fontSmall: 12px;
-@fontLarge: 16px;
+@fontSmall: 0.9rem;
+@fontLarge: 1.1rem;
 
 @padding: 20px;
 
@@ -87,9 +87,10 @@
 		&__content {
 			padding: @padding 0 (@padding / 2);
 			margin: 0 @padding;
-			text-align: center;
+			text-align: center !important;
 
 			.name {
+				font-weight: bold;
 				font-size: @fontLarge;
 				color: @colorPrimary;
 				padding: (@padding / 4) 0;
@@ -104,30 +105,13 @@
 		}
 
 		&__extras {
-			text-align: center;
-			margin: 0 @padding @padding;
-
-			.button {
-				color: @colorAlternative;
-				background-color: @colorPrimary;
-				border-radius: 38px;
-				line-height: 38px;
-				max-width: @width - (@padding * 4);
-				white-space: nowrap;
-				overflow: hidden;
-				text-overflow: ellipsis;
-				font-size: @fontSmall;
-				margin: 0 auto;
-				box-sizing: border-box;
-				padding: 0 @padding;
-				display: block;
-				text-decoration: none;
-			}
+			text-align: center !important;
 
 			.text {
 				color: @colorSecondary;
 				font-size: @fontSmall;
 				line-height: 1rem;
+				margin: 0 @padding @padding;
 			}
 		}
 	}

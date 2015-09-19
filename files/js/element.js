@@ -11,7 +11,6 @@
 			}.bind(this));
 
 			this.fixStyles();
-			this.setupExtraArea();
 		},
 
 		/**
@@ -34,26 +33,16 @@
 			this.$el.find('.editable-text').each(function(index) {
 				$(this).attr('style', '');
 			});
-		},
 
-		/**
-		 * Shows and hides the extra areas on the team
-		 * card based on the options chosen in the element
-		 * settings popover;
-		 */
-		setupExtraArea: function() {
-			switch(this.settings.get('extra_area')) {
-				case 'none':
-					this.$el.find('.button').remove();
-					this.$el.find('.text').remove();
-					break;
-				case 'button':
-					this.$el.find('.text').remove();
-					break;
-				case 'text':
-					this.$el.find('.button').remove();
-					break;
-			}
+			this.$el.find('.element').each(function(index) {
+				$(this).attr('style', '');
+			});
+
+			this.$el.find('img').css({
+				display: '',
+				width: '',
+				height: ''
+			});
 		}
 	});
 
