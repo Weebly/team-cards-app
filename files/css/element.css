@@ -12,135 +12,135 @@
 @transition: 300ms ease-in-out;
 
 .team-card {
-	&--small {
-		@width: 204px;
+    &--small {
+        @width: 204px;
 
-		.card();
-		.team();
-		.hover();
-		.overrides();
-		.imageOverrides();
-	}
+        .card();
+        .team();
+        .hover();
+        .overrides();
+        .imageOverrides();
+    }
 
-	&--large {
-		@width: 280px;
+    &--large {
+        @width: 280px;
 
-		.card();
-		.team();
-		.hover();
-		.overrides();
-		.imageOverrides();
-	}
+        .card();
+        .team();
+        .hover();
+        .overrides();
+        .imageOverrides();
+    }
 }
 
 .card() {
-	width: @width;
-	height: 100%;
-	box-sizing: border-box;
-	border: 1px solid @colorBorder;
-	border-radius: 2px;
-	margin: 20px auto;
-	box-shadow: none;
-	transition: border @transition, box-shadow @transition;
+    width: @width;
+    height: 100%;
+    box-sizing: border-box;
+    border: 1px solid @colorBorder;
+    border-radius: 2px;
+    margin: 20px auto;
+    box-shadow: none;
+    transition: border @transition, box-shadow @transition;
 }
 
 .hover() {
-	&:hover {
-		border: 1px solid @colorBorderHover;
-		box-shadow: 0 4px 8px 0 @colorBorder;
-		transition: border @transition, box-shadow @transition;
-	}
+    &:hover {
+        border: 1px solid @colorBorderHover;
+        box-shadow: 0 4px 8px 0 @colorBorder;
+        transition: border @transition, box-shadow @transition;
+    }
 }
 
 .team() {
-	.team-card {
-		&__image {
-			&--filled {
-				margin: 0;
-				border-radius: 0;
-				overflow: hidden;
-				height: @width;
-				width: @width;
-				
-				img {
-					display: block;
-					width: 100%;
-					height: 100%;
-				}
-			}
+    .team-card {
+        &__image {
+            &--filled {
+                margin: 0;
+                border-radius: 0;
+                overflow: hidden;
+                height: @width;
+                width: @width;
+                
+                img {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
 
-			&--round {
-				border-radius: (@width / 2);
-				height: @width - (@padding * 2);
-				width: @width - (@padding * 2);
-			    overflow: hidden;
-			    margin: @padding @padding 0;
-				
-				img {
-					display: block;
-					width: 100%;
-					height: 100%;
-				}
-			}
-		}
+            &--round {
+                border-radius: (@width / 2);
+                height: @width - (@padding * 2);
+                width: @width - (@padding * 2);
+                overflow: hidden;
+                margin: @padding @padding 0;
+                
+                img {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
 
-		&__content {
-			padding: @padding 0 (@padding / 2);
-			margin: 0 @padding;
-			text-align: center !important;
+        &__content {
+            padding: @padding 0 (@padding / 2);
+            margin: 0 @padding;
+            text-align: center !important;
 
-			.name {
-				font-weight: bold;
-				font-size: @fontLarge;
-				color: @colorPrimary;
-				padding: (@padding / 4) 0;
-			}
+            .name {
+                font-weight: bold;
+                font-size: @fontLarge;
+                color: @colorPrimary;
+                padding: (@padding / 4) 0;
+            }
 
-			.title {
-				font-size: @fontSmall;
-				color: @colorSecondary;
-				text-transform: uppercase;
-				padding: (@padding / 4) 0;
-			}
-		}
+            .title {
+                font-size: @fontSmall;
+                color: @colorSecondary;
+                text-transform: uppercase;
+                padding: (@padding / 4) 0;
+            }
+        }
 
-		&__extras {
-			text-align: center !important;
+        &__extras {
+            text-align: center !important;
 
-			.text {
-				color: @colorSecondary;
-				font-size: @fontSmall;
-				line-height: 1rem;
-				margin: 0 @padding @padding;
-			}
-		}
-	}
+            .text {
+                color: @colorSecondary;
+                font-size: @fontSmall;
+                line-height: 1rem;
+                margin: 0 @padding @padding;
+            }
+        }
+    }
 }
 
 // override Weebly default style
 .overrides() {
-	.paragraph {
-		margin: 0 !important;
-		line-height: inherit;
-	}
+    .paragraph {
+        margin: 0 !important;
+        line-height: inherit;
+    }
 }
 
 // override Weebly default style
 .imageOverrides() {
-	.wsite-image {
-		padding: 0px !important;
-	}
+    .wsite-image {
+        padding: 0px !important;
+    }
 
-	.pic {
-		// allows for scaling when resizing image to be circular
-		.inside, .element-box, .element-box-contents, .element, .wsite-image, .ui-wrapper, a {
-			height: @width !important;
-			width: 100% !important;
-		}
+    .pic {
+        // allows for scaling when resizing image to be circular
+        .inside, .element-box, .element-box-contents, .element, .wsite-image, .ui-wrapper, a {
+            height: @width !important;
+            width: 100% !important;
+        }
 
-		// fix on mobile
-		.platform-element-child, .wsite-image {
-			margin: 0!important;
-		}
-	}
+        // fix on mobile
+        .platform-element-child, .wsite-image {
+            margin: 0!important;
+        }
+    }
 }
