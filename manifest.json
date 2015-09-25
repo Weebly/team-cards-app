@@ -18,9 +18,9 @@
 								"name": "style",
 								"label": "Style",
 								"type": "select",
-								"default": "standard",
+								"default": "small",
 								"values": [
-									{"name": "Standard", "value": "standard"},
+									{"name": "Small", "value": "small"},
 									{"name": "Large", "value": "large"}
 								]
 							},
@@ -31,7 +31,7 @@
 								"default": "round",
 								"values": [
 									{"name": "Circle", "value": "round"},
-									{"name": "Fill", "value": "fill"}
+									{"name": "Filled", "value": "filled"}
 								]
 							},
 							{

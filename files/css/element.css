@@ -12,7 +12,7 @@
 @transition: 300ms ease-in-out;
 
 .team-card {
-	&--standard {
+	&--small {
 		@width: 204px;
 
 		.card();
@@ -55,7 +55,7 @@
 .team() {
 	.team-card {
 		&__image {
-			&--fill {
+			&--filled {
 				margin: 0;
 				border-radius: 0;
 				overflow: hidden;

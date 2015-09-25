@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+<svg width="21px" height="32px" viewBox="0 0 21 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
     <!-- Generator: Sketch 3.3.3 (12072) - http://www.bohemiancoding.com/sketch -->
-    <title>team card</title>
+    <title>New Build/build-teamcard-32</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <g id="team-card" sketch:type="MSArtboardGroup" fill="#C9CDCF">
-            <g id="Form_TeamCard" sketch:type="MSLayerGroup" transform="translate(6.000000, 5.000000)">
+        <g id="New-Build/build-teamcard-32" sketch:type="MSArtboardGroup" fill="#C9CDCF">
+            <g id="Form_TeamCard" sketch:type="MSLayerGroup" transform="translate(0.000000, 5.000000)">
                 <path d="M10.5,13.6 C12.9,13.6 14.8,11.4 14.8,8.8 C14.8,6.2 12.9,4 10.5,4 C8.1,4 6.2,6.2 6.2,8.8 C6.2,11.4 8.1,13.6 10.5,13.6 L10.5,13.6 Z M10.5,6 C11.7,6 12.8,7.2 12.8,8.8 C12.8,10.4 11.7,11.6 10.5,11.6 C9.3,11.6 8.2,10.4 8.2,8.8 C8.2,7.2 9.3,6 10.5,6 L10.5,6 Z M0,0 L0,23 L21,23 L21,0 L0,0 L0,0 Z M19,2 L19,21 L2,21 L2,2 L19,2 L19,2 Z M5,18 L5,16 L16,16 L16,18 L5,18 L5,18 Z" id="Shape" sketch:type="MSShapeGroup"></path>
             </g>
         </g>
