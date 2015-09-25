@@ -1,61 +1,75 @@
 {
-	"manifest": "1",
-	"version": "1.1.0",
-	"elements": [
-		{
-			"path": "files",
-			"name": "Team Card",
-			"version": "1.1.0",
-			"settings": {
-				"config": {"autopop": true},
-				"properties": [
-					{
-						"type": "group",
-						"name": "settings",
-						"label": "Settings",
-						"properties": [
-							{
-								"name": "style",
-								"label": "Style",
-								"type": "select",
-								"default": "small",
-								"values": [
-									{"name": "Small", "value": "small"},
-									{"name": "Large", "value": "large"}
-								]
-							},
-							{
-								"name": "image_display",
-								"label": "Image Display",
-								"type": "select",
-								"default": "round",
-								"values": [
-									{"name": "Circle", "value": "round"},
-									{"name": "Filled", "value": "filled"}
-								]
-							},
-							{
-								"name": "title",
-								"label": "Title",
-								"type": "toggle",
-								"default": true
-							},
-							{
-								"name": "about",
-								"label": "About",
-								"type": "toggle",
-								"default": true
-							},
-							{
-								"name": "button",
-								"label": "Button",
-								"type": "toggle",
-								"default": true
-							}
-						]
-					}
-				]
-			}
-		}
-	]
+  "manifest": "1",
+  "version": "1.1.0",
+  "elements": [
+    {
+      "path": "files",
+      "name": "Team Card",
+      "version": "1.1.0",
+      "settings": {
+        "config": {
+          "autopop": true
+        },
+        "properties": [
+          {
+            "type": "group",
+            "name": "settings",
+            "label": "Settings",
+            "properties": [
+              {
+                "name": "style",
+                "label": "Style",
+                "type": "select",
+                "default": "small",
+                "values": [
+                  {
+                    "name": "Small",
+                    "value": "small"
+                  },
+                  {
+                    "name": "Large",
+                    "value": "large"
+                  }
+                ]
+              },
+              {
+                "name": "image_display",
+                "label": "Image Display",
+                "type": "select",
+                "default": "round",
+                "values": [
+                  {
+                    "name": "Circle",
+                    "value": "round"
+                  },
+                  {
+                    "name": "Filled",
+                    "value": "filled"
+                  }
+                ]
+              },
+              {
+                "name": "title",
+                "label": "Title",
+                "type": "toggle",
+                "default": true
+              },
+              {
+                "name": "about",
+                "label": "About",
+                "type": "toggle",
+                "default": true
+              },
+              {
+                "name": "button",
+                "label": "Button",
+                "type": "toggle",
+                "default": true
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
 }
