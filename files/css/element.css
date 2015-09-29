@@ -7,7 +7,6 @@
 @colorBorderHover: rgba(0, 0, 0, 0.2); // #C2C2C2
 @colorPrimary: rgba(75, 81, 85, 1); // #4B5155
 @colorSecondary: rgba(75, 81, 85, 0.6); // #939799
-@colorAlternative: #FFFFFF;
 
 @transition: 300ms ease-in-out;
 
@@ -42,6 +41,7 @@
     margin: 20px auto;
     box-shadow: none;
     transition: border @transition, box-shadow @transition;
+    background: #FFFFFF;
 }
 
 .hover() {
