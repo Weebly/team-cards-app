@@ -127,6 +127,10 @@
 
 // override Weebly default style
 .imageOverrides() {
+    .wsite-initial-image .element-box {
+        box-shadow: none !important;
+    }
+
     .wsite-image {
         padding: 0px !important;
     }
