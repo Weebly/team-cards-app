@@ -7,6 +7,7 @@
         initialize: function() {
             $(document).ready(function() {
                 this.fixStyles();
+                this.setUpImage();
             }.bind(this));
 
             this.fixStyles();
@@ -42,6 +43,76 @@
                 width: '',
                 height: ''
             });
+        },
+
+        setUpImage: function() {
+            var view = this;
+            var imageObserver = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    view.updateImage();
+                });
+            });
+            imageObserver.observe(this.$('div.wsite-image img')[0], {
+                attributes: true
+            });
+            this.$('div.wsite-image a').click(function() {
+                $(this).find('img').click();
+            });
+            this.$('div.wsite-image img').click(function(e) {
+                e.stopPropagation();
+            });
+            this.updateImage();
+        },
+
+        updateImage: function() {
+            var $img = this.$('li.wsite-image img');
+            var $imgContainer = this.$('.team-card__image--' + this.settings.get('image_display'));
+            var isInitialImage = !!this.$('li.wsite-initial-image img').length;
+            // if there's no image to be found, stop executing.
+            if ($img.length == 0) {
+                return;
+            }
+            // grab sizes of the container and the image
+            var imageSize = {
+                height: $img.height(),
+                width: $img.width()
+            }
+            var containerSize = {
+                height: $imgContainer.height(),
+                width: $imgContainer.width()
+            }
+            // if any of these are zero, stop executing.
+            // if it's zero because the initial image hasn't loaded yet,
+            // then bind a recall to when it finishes.
+            if (!imageSize.height || !imageSize.width || !containerSize.height || !containerSize.width) {
+                if (isInitialImage) {
+                    $img.load(this.updateImage.bind(this));
+                }
+                return;
+            }
+            $img.unbind('load');
+            // determine whether he have an initial image or not
+            if (isInitialImage) {
+                // if we do, we need to move it to fit.
+                var dx = (containerSize.width - imageSize.width) / 2;
+                var dy = (containerSize.height - imageSize.height) / 2;
+                $img.css({
+                    'transform': 'translate(' + dx + 'px,' + dy + 'px)'
+                });                
+            } else {
+                // otherwise, if the image is smaller than the container, scale it up to fit.
+                var scale = 1;
+                if (imageSize.height < containerSize.height) {
+                    scale = containerSize.height / imageSize.height;
+                }
+                if (imageSize.width < containerSize.width) {
+                    scale = Math.max(scale, containerSize.width / imageSize.width);
+                }
+                $img.css({
+                    'transform-origin': 'top center',
+                    'transform': 'scale(' + scale + ', ' + scale + ')'
+                });
+            }
         }
     });
 
