@@ -61,11 +61,21 @@
                 overflow: hidden;
                 height: @width;
                 width: @width;
-                
+
                 img {
                     display: block;
                     width: auto;
                     height: auto;
+                }
+
+                div.wsite-image, a {
+                    height: @width;
+                    width: @width;
+                    display: block;
+                }
+
+                a {
+                    cursor: pointer;
                 }
             }
 
@@ -80,6 +90,17 @@
                     display: block;
                     width: auto;
                     height: auto;
+                }
+
+                div.wsite-image, a {
+                    border-radius: (@width / 2);
+                    height: @width - (@padding * 2);
+                    width: @width - (@padding * 2);
+                    display: block;
+                }
+
+                a {
+                    cursor: pointer;
                 }
             }
         }
@@ -127,6 +148,10 @@
 
 // override Weebly default style
 .imageOverrides() {
+    .wsite-initial-image .element-box {
+        box-shadow: none !important;
+    }
+
     .wsite-image {
         padding: 0px !important;
     }
