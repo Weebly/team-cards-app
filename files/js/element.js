@@ -46,7 +46,6 @@
         // if it's the default placeholder, we translate it so it's center in the image area
         // if it's an uploaded image that's too small, we resize it so it'll fit.
         updateImage: function() {
-            debugger;
             var $img = this.$('div.wsite-image img');
             var $imgContainer = this.$('.team-card__image--' + this.settings.get('image_display'));
             var isInitialImage = !!this.$('div.wsite-initial-image img').length;
