@@ -5,9 +5,25 @@
 (function() {
     var TeamCard = PlatformElement.extend({
         initialize: function() {
-            this.fixStyles();
-            this.updateImage();
-            this.$('.wsite-image img').load(this.setUpImage.bind(this));
+            // since MutationObservers aren't supported in ie10, we use the polyfill class
+            var MutationObserverRequest;
+            if (!MutationObserver) {
+                MutationObserverRequest = $.getScript(this.assets_path + 'MutationObserver.min.js');
+            } else {
+                // but if it's already defined, then immediately resolve this promise
+                MutationObserverRequest = $.Deferred(function(deferred) { 
+                    $(deferred.resolve);
+                });
+            }
+            // then, once we've loaded all of our scripts
+            $.when(
+                MutationObserverRequest
+            ).done(function() {
+                // init all of our styles.
+                this.fixStyles();
+                this.updateImage();
+                this.$('.wsite-image img').load(this.setUpImage.bind(this));
+            }.bind(this));
         },
 
         /**
@@ -47,6 +63,7 @@
             var view = this;
 
             // begin listening for changes to the image source (i.e., someone uploading an image)
+            // ensured to be here via the polyfill request
             var imageObserver = new MutationObserver(function(mutations) {
                 mutations.forEach(function(mutation) {
                     view.updateImage();
