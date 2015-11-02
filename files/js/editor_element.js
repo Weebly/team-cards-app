@@ -7,7 +7,7 @@
         initialize: function() {
             this.fixStyles();
             this.updateImage();
-            this.$('.wsite-image img').load(this.updateImage.bind(this));
+            this.$('.wsite-image img').load(this.setUpImage.bind(this));
         },
 
         /**
@@ -42,14 +42,37 @@
             });
         },
 
+        // sets up the image for proper usage.
+        setUpImage: function() {
+            var view = this;
+
+            // begin listening for changes to the image source (i.e., someone uploading an image)
+            var imageObserver = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    view.updateImage();
+                });
+            });
+            imageObserver.observe(this.$('div.wsite-image img')[0], {
+                attributes: true
+            });
+            // make the entire placeholder area clickable
+            this.$('div.wsite-image a').click(function() {
+                $(this).find('img').click();
+            });
+            // but prevent infinite loops
+            this.$('div.wsite-image img').click(function(e) {
+                e.stopPropagation();
+            });
+            this.updateImage();
+        },
+
         // updates the image and transforms it depending on what needs to happen to it.
         // if it's the default placeholder, we translate it so it's center in the image area
         // if it's an uploaded image that's too small, we resize it so it'll fit.
         updateImage: function() {
-            debugger;
-            var $img = this.$('div.wsite-image img');
+            var $img = this.$('li.wsite-image img');
             var $imgContainer = this.$('.team-card__image--' + this.settings.get('image_display'));
-            var isInitialImage = !!this.$('div.wsite-initial-image img').length;
+            var isInitialImage = !!this.$('li.wsite-initial-image img').length;
             // if there's no image to be found, stop executing.
             if ($img.length === 0) {
                 return;
