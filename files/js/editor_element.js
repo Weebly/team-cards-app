@@ -5,25 +5,15 @@
 (function() {
     var TeamCard = PlatformElement.extend({
         initialize: function() {
-            // since MutationObservers aren't supported in ie10, we use the polyfill class
-            var MutationObserverRequest;
-            if (!MutationObserver) {
-                MutationObserverRequest = $.getScript(this.assets_path + 'MutationObserver.min.js');
-            } else {
-                // but if it's already defined, then immediately resolve this promise
-                MutationObserverRequest = $.Deferred(function(deferred) { 
-                    $(deferred.resolve);
-                });
-            }
-            // then, once we've loaded all of our scripts
-            $.when(
-                MutationObserverRequest
-            ).done(function() {
-                // init all of our styles.
-                this.fixStyles();
-                this.updateImage();
-                this.$('.wsite-image img').load(this.setUpImage.bind(this));
-            }.bind(this));
+            // init all of our styles.
+            this.fixStyles();
+
+            // set up our handlers
+            this.setUpEvents();
+
+            // then update the image
+            this.updateImage();
+            this.$('.wsite-image img').load(this.updateImage.bind(this));
         },
 
         /**
@@ -59,19 +49,7 @@
         },
 
         // sets up the image for proper usage.
-        setUpImage: function() {
-            var view = this;
-
-            // begin listening for changes to the image source (i.e., someone uploading an image)
-            // ensured to be here via the polyfill request
-            var imageObserver = new MutationObserver(function(mutations) {
-                mutations.forEach(function(mutation) {
-                    view.updateImage();
-                });
-            });
-            imageObserver.observe(this.$('div.wsite-image img')[0], {
-                attributes: true
-            });
+        setUpEvents: function() {
             // make the entire placeholder area clickable
             this.$('div.wsite-image a').click(function() {
                 $(this).find('img').click();
@@ -80,7 +58,6 @@
             this.$('div.wsite-image img').click(function(e) {
                 e.stopPropagation();
             });
-            this.updateImage();
         },
 
         // updates the image and transforms it depending on what needs to happen to it.
@@ -90,10 +67,12 @@
             var $img = this.$('li.wsite-image img');
             var $imgContainer = this.$('.team-card__image--' + this.settings.get('image_display'));
             var isInitialImage = !!this.$('li.wsite-initial-image img').length;
+
             // if there's no image to be found, stop executing.
             if ($img.length === 0) {
                 return;
             }
+
             // grab sizes of the container and the image
             var imageSize = {
                 height: $img.height(),
@@ -103,16 +82,12 @@
                 height: $imgContainer.height(),
                 width: $imgContainer.width()
             }
+
             // if any of these are zero, stop executing.
-            // if it's zero because the initial image hasn't loaded yet,
-            // then bind a recall to when it finishes.
             if (!imageSize.height || !imageSize.width || !containerSize.height || !containerSize.width) {
-                if (isInitialImage) {
-                    $img.load(this.updateImage.bind(this));
-                }
                 return;
             }
-            $img.unbind('load');
+
             // determine whether he have an initial image or not
             if (isInitialImage) {
                 // if we do, we need to move it to fit.

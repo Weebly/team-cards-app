@@ -49,10 +49,12 @@
             var $img = this.$('div.wsite-image img');
             var $imgContainer = this.$('.team-card__image--' + this.settings.get('image_display'));
             var isInitialImage = !!this.$('div.wsite-initial-image img').length;
+
             // if there's no image to be found, stop executing.
             if ($img.length === 0) {
                 return;
             }
+
             // grab sizes of the container and the image
             var imageSize = {
                 height: $img.height(),
@@ -62,16 +64,14 @@
                 height: $imgContainer.height(),
                 width: $imgContainer.width()
             }
+
             // if any of these are zero, stop executing.
             // if it's zero because the initial image hasn't loaded yet,
             // then bind a recall to when it finishes.
             if (!imageSize.height || !imageSize.width || !containerSize.height || !containerSize.width) {
-                if (isInitialImage) {
-                    $img.load(this.updateImage.bind(this));
-                }
                 return;
             }
-            $img.unbind('load');
+
             // determine whether he have an initial image or not
             if (isInitialImage) {
                 // if we do, we need to move it to fit.
