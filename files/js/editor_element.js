@@ -13,7 +13,7 @@
 
             // then update the image
             this.updateImage();
-            this.$('.wsite-image img').load(this.updateImage.bind(this));
+            this.$('.wsite-image img').bind("load", this.updateImage.bind(this));
         },
 
         /**
@@ -64,6 +64,7 @@
         // if it's the default placeholder, we translate it so it's center in the image area
         // if it's an uploaded image that's too small, we resize it so it'll fit.
         updateImage: function() {
+            console.log('updating');
             var $img = this.$('li.wsite-image img');
             var $imgContainer = this.$('.team-card__image--' + this.settings.get('image_display'));
             var isInitialImage = !!this.$('li.wsite-initial-image img').length;
@@ -72,6 +73,13 @@
             if ($img.length === 0) {
                 return;
             }
+
+            // reset the size of the image
+            $img.css({
+                'transform': 'none',
+                'height': 'auto',
+                'width': 'auto'
+            });
 
             // grab sizes of the container and the image
             var imageSize = {
@@ -108,6 +116,10 @@
                 $img.css({
                     'transform-origin': 'top center',
                     'transform': 'scale(' + scale + ', ' + scale + ')'
+                });
+                $img.css({
+                    'height': $img.height() + 'px',
+                    'width': $img.width() + 'px'
                 });
             }
         }

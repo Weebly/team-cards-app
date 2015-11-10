@@ -7,7 +7,7 @@
         initialize: function() {
             this.fixStyles();
             this.updateImage();
-            this.$('.wsite-image img').load(this.updateImage.bind(this));
+            this.$('.wsite-image img').bind("load", this.updateImage.bind(this));
         },
 
         /**
@@ -55,6 +55,13 @@
                 return;
             }
 
+            // reset the size of the image
+            $img.css({
+                'transform': 'none',
+                'height': 'auto',
+                'width': 'auto'
+            });
+
             // grab sizes of the container and the image
             var imageSize = {
                 height: $img.height(),
@@ -92,6 +99,10 @@
                 $img.css({
                     'transform-origin': 'top center',
                     'transform': 'scale(' + scale + ', ' + scale + ')'
+                });
+                $img.css({
+                    'height': $img.height() + 'px',
+                    'width': $img.width() + 'px'
                 });
             }
         }
