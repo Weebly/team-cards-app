@@ -5,7 +5,13 @@
 (function() {
     var TeamCard = PlatformElement.extend({
         initialize: function() {
+            // init all of our styles.
             this.fixStyles();
+
+            // set up our handlers
+            this.setUpEvents();
+
+            // then update the image
             this.updateImage();
             this.$('.wsite-image img').bind("load", this.updateImage.bind(this));
         },
@@ -42,13 +48,26 @@
             });
         },
 
+        // sets up the image for proper usage.
+        setUpEvents: function() {
+            // make the entire placeholder area clickable
+            this.$('div.wsite-image a').click(function() {
+                $(this).find('img').click();
+            });
+            // but prevent infinite loops
+            this.$('div.wsite-image img').click(function(e) {
+                e.stopPropagation();
+            });
+        },
+
         // updates the image and transforms it depending on what needs to happen to it.
         // if it's the default placeholder, we translate it so it's center in the image area
         // if it's an uploaded image that's too small, we resize it so it'll fit.
         updateImage: function() {
-            var $img = this.$('div.wsite-image img');
+            console.log('updating');
+            var $img = this.$('li.wsite-image img');
             var $imgContainer = this.$('.team-card__image--' + this.settings.get('image_display'));
-            var isInitialImage = !!this.$('div.wsite-initial-image img').length;
+            var isInitialImage = !!this.$('li.wsite-initial-image img').length;
 
             // if there's no image to be found, stop executing.
             if ($img.length === 0) {
@@ -73,8 +92,6 @@
             }
 
             // if any of these are zero, stop executing.
-            // if it's zero because the initial image hasn't loaded yet,
-            // then bind a recall to when it finishes.
             if (!imageSize.height || !imageSize.width || !containerSize.height || !containerSize.width) {
                 return;
             }
