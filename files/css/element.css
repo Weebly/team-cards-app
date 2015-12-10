@@ -63,7 +63,6 @@
                 width: @width;
 
                 img {
-                    display: block;
                     width: auto;
                     height: auto;
                 }
@@ -87,7 +86,6 @@
                 margin: @padding @padding 0;
                 
                 img {
-                    display: block;
                     width: auto;
                     height: auto;
                 }
