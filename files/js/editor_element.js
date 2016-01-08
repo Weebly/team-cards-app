@@ -51,9 +51,19 @@
         // sets up the image for proper usage.
         setUpEvents: function() {
             // make the entire placeholder area clickable
-            this.$('div.wsite-image a').click(function() {
-                $(this).find('img').click();
-            });
+            var $link = this.$('div.wsite-image a');
+            // if it's a link placeholder, then ignore immediatepropagation
+            if ($link.is('a[href^="http://weebly-link/"], a[href^="https://weebly-link/"]').length !== 0) {
+                $link.children().click(function(e) {
+                    e.preventDefault();
+                    e.stopImmediatePropagation();
+                })
+            } else {
+                // wire stuff to the img for img flyover
+                $link.click(function(e) {
+                     $(this).find('img').click();
+                 });
+            }
             // but prevent infinite loops
             this.$('div.wsite-image img').click(function(e) {
                 e.stopPropagation();
@@ -64,7 +74,6 @@
         // if it's the default placeholder, we translate it so it's center in the image area
         // if it's an uploaded image that's too small, we resize it so it'll fit.
         updateImage: function() {
-            console.log('updating');
             var $img = this.$('li.wsite-image img');
             var $imgContainer = this.$('.team-card__image--' + this.settings.get('image_display'));
             var isInitialImage = !!this.$('li.wsite-initial-image img').length;
