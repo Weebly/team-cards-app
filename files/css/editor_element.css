@@ -77,6 +77,10 @@
                 a {
                     cursor: pointer;
                 }
+
+                a[href^="http://weebly-link/"], a[href^="https://weebly-link/"] {
+                    height: 0px;
+                }
             }
 
             &--round {
@@ -101,6 +105,10 @@
 
                 a {
                     cursor: pointer;
+                }
+
+                a[href^="http://weebly-link/"], a[href^="https://weebly-link/"] {
+                    height: 0px;
                 }
             }
         }
