@@ -1,0 +1,179 @@
+@fontSmall: 0.9rem;
+@fontLarge: 1.1rem;
+
+@padding: 20px;
+
+@colorBorder: rgba(0, 0, 0, 0.1); // #DDDDDD
+@colorBorderHover: rgba(0, 0, 0, 0.2); // #C2C2C2
+@colorPrimary: rgba(75, 81, 85, 1); // #4B5155
+@colorSecondary: rgba(75, 81, 85, 0.6); // #939799
+
+@transition: 300ms ease-in-out;
+
+.team-card {
+    &--small {
+        @width: 204px;
+
+        .card();
+        .team();
+        .hover();
+        .overrides();
+        .imageOverrides();
+    }
+
+    &--large {
+        @width: 280px;
+
+        .card();
+        .team();
+        .hover();
+        .overrides();
+        .imageOverrides();
+    }
+}
+
+.card() {
+    width: @width;
+    height: 100%;
+    box-sizing: border-box;
+    border: 1px solid @colorBorder;
+    border-radius: 2px;
+    margin: 20px auto;
+    box-shadow: none;
+    transition: border @transition, box-shadow @transition;
+    background: #FFFFFF;
+}
+
+.hover() {
+    &:hover {
+        border: 1px solid @colorBorderHover;
+        box-shadow: 0 4px 8px 0 @colorBorder;
+        transition: border @transition, box-shadow @transition;
+    }
+}
+
+.team() {
+    .team-card {
+        &__image {
+            &--filled {
+                margin: 0;
+                border-radius: 0;
+                overflow: hidden;
+                height: @width;
+                width: @width;
+
+                img {
+                    display: block;
+                    width: auto;
+                    height: auto;
+                }
+
+                div.wsite-image, a {
+                    height: @width;
+                    width: @width;
+                    display: block;
+                }
+
+                a {
+                    cursor: pointer;
+                }
+
+                a[href^="http://weebly-link/"], a[href^="https://weebly-link/"] {
+                    height: 0px;
+                }
+            }
+
+            &--round {
+                border-radius: (@width / 2);
+                height: @width - (@padding * 2);
+                width: @width - (@padding * 2);
+                overflow: hidden;
+                margin: @padding @padding 0;
+                
+                img {
+                    display: block;
+                    width: auto;
+                    height: auto;
+                }
+
+                div.wsite-image, a {
+                    border-radius: (@width / 2);
+                    height: @width - (@padding * 2);
+                    width: @width - (@padding * 2);
+                    display: block;
+                }
+
+                a {
+                    cursor: pointer;
+                }
+
+                a[href^="http://weebly-link/"], a[href^="https://weebly-link/"] {
+                    height: 0px;
+                }
+            }
+        }
+
+        &__content {
+            padding: @padding 0 (@padding / 2);
+            margin: 0 @padding;
+            text-align: center !important;
+
+            .name {
+                font-weight: bold;
+                font-size: @fontLarge;
+                color: @colorPrimary;
+                padding: (@padding / 4) 0;
+            }
+
+            .title {
+                font-size: @fontSmall;
+                color: @colorSecondary;
+                text-transform: uppercase;
+                padding: (@padding / 4) 0;
+            }
+        }
+
+        &__extras {
+            text-align: center !important;
+
+            .text {
+                color: @colorSecondary;
+                font-size: @fontSmall;
+                line-height: 1rem;
+                margin: 0 @padding @padding;
+            }
+        }
+    }
+}
+
+// override Weebly default style
+.overrides() {
+    .paragraph {
+        margin: 0 !important;
+        line-height: inherit;
+    }
+}
+
+// override Weebly default style
+.imageOverrides() {
+    .wsite-initial-image .element-box {
+        box-shadow: none !important;
+    }
+
+    .wsite-image {
+        padding: 0px !important;
+    }
+
+    .pic {
+        // allows for scaling when resizing image to be circular
+        .inside, .element-box, .element-box-contents, .element, .wsite-image, .ui-wrapper, a {
+            height: @width !important;
+            width: 100% !important;
+        }
+
+        // fix on mobile
+        .platform-element-child, .wsite-image {
+            margin: 0!important;
+        }
+    }
+}
