@@ -123,7 +123,7 @@
                     scale = Math.max(scale, containerSize.width / imageSize.width);
                 }
                 $img.css({
-                    'transform-origin': 'top center',
+                    'transform-origin': 'left top',
                     'transform': 'scale(' + scale + ', ' + scale + ')'
                 });
                 $img.css({
