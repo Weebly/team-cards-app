@@ -51,22 +51,19 @@
         // sets up the image for proper usage.
         setUpEvents: function() {
             // make the entire placeholder area clickable
-            var $link = this.$('div.wsite-image a');
-            // if it's a link placeholder, then ignore immediatepropagation
-            if ($link.is('a[href^="http://weebly-link/"], a[href^="https://weebly-link/"]').length !== 0) {
-                $link.children().click(function(e) {
+            this.$el.on('click', 'div.wsite-image a', function(e) {
+                $link = $(e.currentTarget);
+                if ($link.attr('href').indexOf('://weebly-link') > -1) {
                     e.preventDefault();
                     e.stopImmediatePropagation();
-                })
-            } else {
-                // wire stuff to the img for img flyover
-                $link.click(function(e) {
-                     $(this).find('img').click();
-                 });
-            }
+                } else {
+                    $link.find('img').click();
+                }
+            });
             // but prevent infinite loops
             this.$('div.wsite-image img').click(function(e) {
-                e.stopPropagation();
+                e.preventDefault();
+                e.stopImmediatePropagation();
             });
         },
 
