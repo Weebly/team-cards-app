@@ -90,14 +90,21 @@
             } else {
                 // otherwise, if the image is smaller than the container, scale it up to fit.
                 var scale = 1;
+                // depending on if which way we scale more, our origin will change 
+                var origin = 'left top'
                 if (imageSize.height < containerSize.height) {
                     scale = containerSize.height / imageSize.height;
+                    origin = 'center top';
                 }
                 if (imageSize.width < containerSize.width) {
+                    var oldScale = scale;
                     scale = Math.max(scale, containerSize.width / imageSize.width);
+                    if (scale > oldScale) {
+                        origin = 'left top';
+                    }
                 }
                 $img.css({
-                    'transform-origin': 'left top',
+                    'transform-origin': origin,
                     'transform': 'scale(' + scale + ', ' + scale + ')'
                 });
                 $img.css({
