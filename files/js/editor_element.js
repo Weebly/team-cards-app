@@ -50,20 +50,14 @@
 
         // sets up the image for proper usage.
         setUpEvents: function() {
-            // make the entire placeholder area clickable
+            // When the team card has an uploaded image that is also linked,
+            // clicking the link will actually launch it.
+            // Here we listen for the click event to prevent opening the link.
             this.$el.on('click', 'div.wsite-image a', function(e) {
                 $link = $(e.currentTarget);
-                if ($link.attr('href').indexOf('://weebly-link') > -1) {
+                if ($link.attr('href') !== '') {
                     e.preventDefault();
-                    e.stopImmediatePropagation();
-                } else {
-                    $link.find('img').click();
                 }
-            });
-            // but prevent infinite loops
-            this.$('div.wsite-image img').click(function(e) {
-                e.preventDefault();
-                e.stopImmediatePropagation();
             });
         },
 
