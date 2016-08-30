@@ -89,7 +89,7 @@
                 width: @width - (@padding * 2);
                 overflow: hidden;
                 margin: @padding @padding 0;
-                
+
                 img {
                     display: block;
                     width: auto;
@@ -150,6 +150,7 @@
 .overrides() {
     .paragraph {
         margin: 0 !important;
+        color: @colorPrimary;
         line-height: inherit;
     }
 }
